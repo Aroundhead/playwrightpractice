@@ -1,4 +1,4 @@
-const BaseComponent = require('../../../core/base.component');
+const BaseComponent = require('../../base.component');
 
 class LoginFormComponent extends BaseComponent {
   get root() {

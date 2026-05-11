@@ -1,4 +1,4 @@
-const BaseComponent = require('../../../core/base.component');
+const BaseComponent = require('../../base.component');
 
 class NavbarComponent extends BaseComponent {
   get navigationItems() {

@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const BaseComponent = require('../../../core/base.component');
+const BaseComponent = require('../../base.component');
 
 class ProductCardComponent extends BaseComponent {
   get productCards() {
