@@ -1,8 +1,6 @@
-class NavbarComponent {
-  constructor(page) {
-    this.page = page;
-  }
+const BaseComponent = require('../../../core/base.component');
 
+class NavbarComponent extends BaseComponent {
   get navigationItems() {
     return {
       cart: 'nav-cart',
@@ -19,7 +17,7 @@ class NavbarComponent {
       throw new Error(`Navigation item "${name}" does not exist`);
     }
 
-    return this.page.getByTestId(testId);
+    return this.getByTestId(testId);
   }
 
   async openCart() {

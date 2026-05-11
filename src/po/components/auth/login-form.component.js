@@ -1,10 +1,8 @@
-class LoginFormComponent {
-  constructor(page) {
-    this.page = page;
-  }
+const BaseComponent = require('../../../core/base.component');
 
+class LoginFormComponent extends BaseComponent {
   get root() {
-    return this.page.getByTestId('login-form');
+    return this.getByTestId('login-form');
   }
 
   get emailInput() {

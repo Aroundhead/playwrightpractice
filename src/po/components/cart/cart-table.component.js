@@ -1,10 +1,10 @@
 const { expect } = require('@playwright/test');
-const { parsePrice } = require('../../../utils/price.util');
+const BaseComponent = require('../../../core/base.component');
+const { parsePrice } = require('../../../core/utils/price.util');
 
-class CartTableComponent {
-  constructor(page) {
-    this.page = page;
-    this.table = page.getByRole('table');
+class CartTableComponent extends BaseComponent {
+  get table() {
+    return this.getByRole('table');
   }
 
   get rows() {

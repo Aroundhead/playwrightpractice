@@ -1,12 +1,9 @@
 const { expect } = require('@playwright/test');
+const BaseComponent = require('../../../core/base.component');
 
-class ProductCardComponent {
-  constructor(page) {
-    this.page = page;
-  }
-
+class ProductCardComponent extends BaseComponent {
   get productCards() {
-    return this.page.getByTestId(/^product-/);
+    return this.getByTestId(/^product-/);
   }
 
   productCardByIndex(index) {
