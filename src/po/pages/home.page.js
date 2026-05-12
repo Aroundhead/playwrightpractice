@@ -1,6 +1,6 @@
-const BasePage = require('./base.page');
+const BasePage = require('../../core/base.page');
 const ProductCardComponent = require('../components/product/product-card.component');
-const { routes } = require('../../config/routes.config');
+const { routes } = require('../config/routes.config');
 
 class HomePage extends BasePage {
   constructor(page) {
@@ -10,6 +10,11 @@ class HomePage extends BasePage {
 
   async openFirstProduct() {
     await this.productCard.openFirstProduct();
+  }
+
+  async openFirstProductDetails() {
+    await this.open();
+    await this.openFirstProduct();
   }
 }
 

@@ -1,5 +1,4 @@
-const { expect } = require('@playwright/test');
-const BasePage = require('./base.page');
+const BasePage = require('../../core/base.page');
 
 class ProductDetailsPage extends BasePage {
   constructor(page) {
@@ -22,18 +21,7 @@ class ProductDetailsPage extends BasePage {
     return this.page.getByTestId('add-to-cart');
   }
 
-  async expectProductDetailsPageOpened() {
-    await expect(this.page).toHaveURL(/product/);
-  }
-
-  async expectProductInformationVisible() {
-    await expect(this.productName).toBeVisible();
-    await expect(this.productPrice).toBeVisible();
-    await expect(this.productDescription).toBeVisible();
-  }
-
   async addProductToCart() {
-    await expect(this.addToCartButton).toBeVisible();
     await this.addToCartButton.click();
   }
 }

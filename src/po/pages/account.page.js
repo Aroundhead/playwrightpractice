@@ -1,6 +1,5 @@
-const { expect } = require('@playwright/test');
-const BasePage = require('./base.page');
-const { routes } = require('../../config/routes.config');
+const BasePage = require('../../core/base.page');
+const { routes } = require('../config/routes.config');
 
 class AccountPage extends BasePage {
   constructor(page) {
@@ -9,11 +8,6 @@ class AccountPage extends BasePage {
 
   get accountTitle() {
     return this.page.getByRole('heading', { name: /Mi cuenta|My account/i });
-  }
-
-  async expectAccountPageOpened() {
-    await expect(this.page).toHaveURL(/account/);
-    await expect(this.accountTitle).toBeVisible();
   }
 }
 

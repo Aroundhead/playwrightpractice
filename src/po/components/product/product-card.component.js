@@ -1,5 +1,4 @@
-const { expect } = require('@playwright/test');
-const BaseComponent = require('../../base.component');
+const BaseComponent = require('../../../core/base.component');
 
 class ProductCardComponent extends BaseComponent {
   get productCards() {
@@ -15,7 +14,6 @@ class ProductCardComponent extends BaseComponent {
   }
 
   async openFirstProduct() {
-    await expect(this.firstProductCard).toBeVisible();
     await this.firstProductCard.click();
   }
 }

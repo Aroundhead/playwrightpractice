@@ -1,17 +1,15 @@
-const BaseComponent = require('../../base.component');
+const BaseComponent = require('../../../core/base.component');
+
+const NAVIGATION_ITEMS = {
+  cart: 'nav-cart',
+  menu: 'nav-menu',
+  signOut: 'nav-sign-out',
+  signIn: 'nav-sign-in',
+};
 
 class NavbarComponent extends BaseComponent {
-  get navigationItems() {
-    return {
-      cart: 'nav-cart',
-      menu: 'nav-menu',
-      signOut: 'nav-sign-out',
-      signIn: 'nav-sign-in',
-    };
-  }
-
   item(name) {
-    const testId = this.navigationItems[name];
+    const testId = NAVIGATION_ITEMS[name];
 
     if (!testId) {
       throw new Error(`Navigation item "${name}" does not exist`);
@@ -31,6 +29,10 @@ class NavbarComponent extends BaseComponent {
   async signOut() {
     await this.openUserMenu();
     await this.item('signOut').click();
+  }
+
+  async openSignIn() {
+    await this.item('signIn').click();
   }
 }
 

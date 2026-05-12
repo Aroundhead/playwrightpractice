@@ -10,10 +10,6 @@ class BaseComponent {
   getByRole(role, options) {
     return this.page.getByRole(role, options);
   }
-
-  locator(selector) {
-    return this.page.locator(selector);
-  }
 }
 
 module.exports = BaseComponent;

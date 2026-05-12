@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test');
-const BasePage = require('./base.page');
+const BasePage = require('../../core/base.page');
 const CartTableComponent = require('../components/cart/cart-table.component');
-const { parsePrice } = require('../../utils/price.util');
+const { parsePrice } = require('../utils/price.util');
 
 class CartPage extends BasePage {
   constructor(page) {

@@ -1,15 +1,15 @@
-const { test } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 const { pages } = require('../po');
+const { loginAsCustomer } = require('./helpers/auth.helper');
 
 test('Logged-in user signs out of the application', async ({ page }) => {
   const app = pages(page);
 
-  await app.login.open();
-  await app.login.loginAsCustomer();
+  await loginAsCustomer(app);
 
-  await app.account.expectAccountPageOpened();
+  await expect(page).toHaveURL(/account/);
+  await expect(app.account.accountTitle).toBeVisible();
 
-  await app.account.navbar.signOut();
-
-  await app.login.expectLoginPageOpened();
+  await app.navbar.signOut();
+  await expect(page).toHaveURL(/login/);
 });

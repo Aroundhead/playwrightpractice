@@ -1,11 +1,12 @@
-const { test } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 const { pages } = require('../po');
+const { loginAsCustomer } = require('./helpers/auth.helper');
 
 test('Registered user signs in with valid credentials', async ({ page }) => {
   const app = pages(page);
 
-  await app.login.open();
-  await app.login.loginAsCustomer();
+  await loginAsCustomer(app);
 
-  await app.account.expectAccountPageOpened();
+  await expect(page).toHaveURL(/account/);
+  await expect(app.account.accountTitle).toBeVisible();
 });
