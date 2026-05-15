@@ -1,7 +1,7 @@
 const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
-  testDir: './src/tests',
+  testDir: './src',
   retries: 2,
   workers: 2,
 
@@ -17,8 +17,24 @@ module.exports = defineConfig({
   },
 
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } },
-    { name: 'firefox', use: { browserName: 'firefox' } },
-    { name: 'webkit', use: { browserName: 'webkit' } }
-  ]
+    {
+      name: 'api',
+      testMatch: 'api/tests/**/*.spec.js',
+    },
+    {
+      name: 'chromium',
+      testMatch: 'tests/**/*.spec.js',
+      use: { browserName: 'chromium' },
+    },
+    {
+      name: 'firefox',
+      testMatch: 'tests/**/*.spec.js',
+      use: { browserName: 'firefox' },
+    },
+    {
+      name: 'webkit',
+      testMatch: 'tests/**/*.spec.js',
+      use: { browserName: 'webkit' },
+    },
+  ],
 });
